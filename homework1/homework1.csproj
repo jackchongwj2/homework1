@@ -1,0 +1,89 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>424e706b-1ced-47a7-bf49-23dd5155f7e1</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="SP\dbo.CheckResultConditions.StoredProcedure.sql" />
+    <None Remove="SP\dbo.CheckStudentExists.StoredProcedure.sql" />
+    <None Remove="SP\dbo.CheckSubjectExists.StoredProcedure.sql" />
+    <None Remove="SP\dbo.CheckTeacherExists.StoredProcedure.sql" />
+    <None Remove="SP\dbo.CreateResult.StoredProcedure.sql" />
+    <None Remove="SP\dbo.CreateStudent.StoredProcedure.sql" />
+    <None Remove="SP\dbo.CreateSubject.StoredProcedure.sql" />
+    <None Remove="SP\dbo.CreateTeacher.StoredProcedure.sql" />
+    <None Remove="SP\dbo.DeleteResult.StoredProcedure.sql" />
+    <None Remove="SP\dbo.DeleteStudent.StoredProcedure.sql" />
+    <None Remove="SP\dbo.DeleteSubject.StoredProcedure.sql" />
+    <None Remove="SP\dbo.DeleteTeacher.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetAllResults.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetAllStudents.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetAllSubjects.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetAllTeachers.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetAvailableSubjectsByStudentId.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetResultById.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetResultByStudentId.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetResultsIndex.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetStudentById.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetStudentsIndex.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetSubjectById.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetSubjectsByTeacherId.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetSubjectsIndex.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetTeacherById.StoredProcedure.sql" />
+    <None Remove="SP\dbo.GetTeachersIndex.StoredProcedure.sql" />
+    <None Remove="SP\dbo.UpdateResult.StoredProcedure.sql" />
+    <None Remove="SP\dbo.UpdateStudent.StoredProcedure.sql" />
+    <None Remove="SP\dbo.UpdateSubject.StoredProcedure.sql" />
+    <None Remove="SP\dbo.UpdateTeacher.StoredProcedure.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="SP\dbo.CheckResultConditions.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.CheckStudentExists.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.CheckSubjectExists.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.CheckTeacherExists.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.CreateResult.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.CreateStudent.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.CreateSubject.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.CreateTeacher.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.DeleteResult.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.DeleteStudent.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.DeleteSubject.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.DeleteTeacher.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetAllResults.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetAllStudents.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetAllSubjects.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetAllTeachers.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetAvailableSubjectsByStudentId.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetResultById.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetResultByStudentId.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetResultsIndex.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetStudentById.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetStudentsIndex.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetSubjectById.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetSubjectsByTeacherId.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetSubjectsIndex.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetTeacherById.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.GetTeachersIndex.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.UpdateResult.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.UpdateStudent.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.UpdateSubject.StoredProcedure.sql" />
+    <EmbeddedResource Include="SP\dbo.UpdateTeacher.StoredProcedure.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
+  </ItemGroup>
+
+</Project>

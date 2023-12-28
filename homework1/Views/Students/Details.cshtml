@@ -1,0 +1,79 @@
+﻿@model homework1.ViewModels.StudentViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    <h1 class="mt-4">Details</h1>
+
+    <div class="mt-4">
+        <h4>Student</h4>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2">
+                Student Name
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.StudentName)
+            </dd>
+            <dt class = "col-sm-2">
+                Student Email
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.StudentEmail)
+            </dd>
+            <dt class = "col-sm-2">
+                Date of Birth
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.StudentDOB)
+            </dd>
+            <dt class = "col-sm-2">
+                Enrollment Date
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.StudentEnroll)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="mt-4">
+        <h4>Results</h4>
+        <hr />
+        @if (Model.Result != null && Model.Result.Any())
+        {
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Subject Name</th>
+                        <th>Subject Code</th>
+                        <th>Marks</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var result in Model.Result)
+                    {
+                        <tr>
+                            <td>@result.SubjectName</td>
+                            <td>@result.SubjectCode</td>
+                            <td>@(result.Marks?.ToString() ?? "N/A")</td>
+                            <td>@result.Grade</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="mt-4">
+                <p>No results found.</p>
+            </div>
+        }
+    </div>
+
+    <div class="mt-4">
+        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.StudentId">Edit</a>
+        <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+    </div>
+</div>

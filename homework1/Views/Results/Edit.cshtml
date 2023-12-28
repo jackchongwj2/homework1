@@ -1,0 +1,80 @@
+﻿@model homework1.ViewModels.ResultViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="mt-4">Edit</h1>
+
+<h4 class="mt-4">Result</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ResultId" />
+            <input type="hidden" asp-for="StudentId" />
+            <input type="hidden" asp-for="SubjectId" />
+            <input type="hidden" asp-for="StudentName" />
+            <input type="hidden" asp-for="SubjectName" />
+            <div class="form-group">
+                <label class="control-label">Student Name</label>
+                <p class="form-control" readonly>@Model.StudentName</p>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Subject Name</label>
+                <p class="form-control" readonly>@Model.SubjectName</p>
+            </div>
+            <div class="form-group">
+                <label asp-for="Marks" class="control-label">Marks</label>
+                <input asp-for="Marks" class="form-control" type="number" min="0" max="100" step="0.1" />
+                <span asp-validation-for="Marks" class="text-danger"></span>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="marksNullableCheckbox" />
+                <label class="form-check-label" for="marksNullableCheckbox"> No Marks</label>
+            </div>
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-success">Save</button>
+                <a asp-action="Index" class="btn btn-secondary ml-2">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the checkbox and marks input elements
+            var marksNullableCheckbox = document.getElementById('marksNullableCheckbox');
+            var marksInput = document.querySelector('[name="Marks"]');
+
+            // Check if elements exist before using them
+            if (marksNullableCheckbox && marksInput) {
+                // Add an event listener to the checkbox
+                marksNullableCheckbox.addEventListener('change', function () {
+                    // Disable or enable the marks input based on the checkbox state
+                    marksInput.disabled = this.checked;
+                    // If checkbox is checked, set Marks value to null
+                    if (this.checked) {
+                        marksInput.value = null;
+                    }
+                });
+
+                // Check the checkbox if the Marks input is disabled
+                marksNullableCheckbox.checked = marksInput.disabled;
+
+                // If Marks value is null, check the "No Marks" checkbox
+                if (marksInput.value === null || marksInput.value === "") {
+                    marksNullableCheckbox.checked = true;
+                }
+
+                // Trigger the change event to ensure proper initialization
+                marksNullableCheckbox.dispatchEvent(new Event('change'));
+            });
+        });
+    </script>
+}
