@@ -54,27 +54,38 @@
 
             // Check if elements exist before using them
             if (marksNullableCheckbox && marksInput) {
+                // Function to update checkbox state based on marks input value
+                function updateCheckboxState() {
+                    // Disable or enable the marks input based on the checkbox state
+                    marksInput.disabled = marksNullableCheckbox.checked;
+                }
+
                 // Add an event listener to the checkbox
                 marksNullableCheckbox.addEventListener('change', function () {
-                    // Disable or enable the marks input based on the checkbox state
-                    marksInput.disabled = this.checked;
+                    // Update the checkbox state
+                    updateCheckboxState();
                     // If checkbox is checked, set Marks value to null
                     if (this.checked) {
                         marksInput.value = null;
                     }
                 });
 
-                // Check the checkbox if the Marks input is disabled
-                marksNullableCheckbox.checked = marksInput.disabled;
-
-                // If Marks value is null, check the "No Marks" checkbox
-                if (marksInput.value === null || marksInput.value === "") {
-                    marksNullableCheckbox.checked = true;
+                // Function to handle the initial state
+                function initializeCheckboxState() {
+                    // If Marks value is null or empty, check the "No Marks" checkbox
+                    if (!marksInput.value.trim()) {
+                        marksNullableCheckbox.checked = true;
+                    }
+                    // Update the checkbox state
+                    updateCheckboxState();
                 }
 
                 // Trigger the change event to ensure proper initialization
                 marksNullableCheckbox.dispatchEvent(new Event('change'));
-            });
+
+                // Call the initialize function when the page loads
+                initializeCheckboxState();
+            }
         });
     </script>
 }
